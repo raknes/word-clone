@@ -39,7 +39,7 @@ function Game() {
   return (
     <>
       <GuessResults guesses={guesses} />
-      <GuessInput handleSetGuesses={handleNewGuess} />
+      <GuessInput handleSetGuesses={handleNewGuess} isEnabled={guessIndex < 6 && !guesses.some((x) => x.statuses.every((y) => y === 'correct'))} />
       {(guessIndex === 6 || guesses.some((x) => x.statuses.every((y) => y === 'correct'))) && (
         <Banner isSolved={guessIndex < 6} numGuesses={guessIndex} answer={answer} />
       )}
